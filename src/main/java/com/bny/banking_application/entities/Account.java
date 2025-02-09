@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "accounts")
-public class Accont {
+public class Account {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,14 +17,14 @@ public class Accont {
 
     @Column(name = "account_holder_name")
     private String accountHolderName;
-    private double balnce;
+    private double balance;
 
-    public Accont() {
+    public Account() {
     }
 
-    public Accont(String accountHolderName, double balnce) {
+    public Account(String accountHolderName, double balance) {
         this.accountHolderName = accountHolderName;
-        this.balnce = balnce;
+        this.balance = balance;
     }
 
     public long getId() {
@@ -44,11 +44,11 @@ public class Accont {
     }
 
     public double getBalnce() {
-        return balnce;
+        return balance;
     }
 
-    public void setBalnce(double balnce) {
-        this.balnce = balnce;
+    public void setBalnce(double balance) {
+        this.balance = balance;
     }
 
     
