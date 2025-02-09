@@ -5,6 +5,8 @@
 5) Deposit Balance 
 6) Withdraw Balance 
 
+Controller (dto) --> AccouuntService (dto) --> mapper dtoToEntity--> AccontRepo (Entity) --> --> mapper.entityToDto -->
+return from AccountSerive (dto)
 
 git add .
 git commit -m ""

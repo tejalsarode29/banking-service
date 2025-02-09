@@ -22,7 +22,8 @@ public class Account {
     public Account() {
     }
 
-    public Account(String accountHolderName, double balance) {
+    public Account(long id, String accountHolderName, double balance) {
+        this.id = id;
         this.accountHolderName = accountHolderName;
         this.balance = balance;
     }
