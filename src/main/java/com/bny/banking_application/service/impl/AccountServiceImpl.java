@@ -2,6 +2,7 @@ package com.bny.banking_application.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,6 +43,18 @@ public class AccountServiceImpl implements AccountService {
             lstOfAccDto.add(AccountMapper.mapToAccountDto(account));
         }
         return lstOfAccDto;
+    }
+
+    @Override
+    public AccountDto deposit(Long id, Double amount) {
+        Optional<Account> account = accountRepository.findById(id);
+        Account updatedAccount = null;
+        if (!account.isEmpty() && account.get().getBalance() >= 0) {
+            double newBalance = account.get().getBalance() + amount;
+            account.get().setBalance(newBalance);
+            updatedAccount = accountRepository.save(account.get());
+        }
+        return AccountMapper.mapToAccountDto(updatedAccount);
     }
     
 }

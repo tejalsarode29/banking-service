@@ -41,4 +41,9 @@ public class AccountController {
         AccountDto accDto = accService.createAccount(accountDto);
         return ResponseEntity.ok(accDto);
     }
+
+    @GetMapping("/deposit/{id}/{amount}")
+    public ResponseEntity<AccountDto> depositAmount(@PathVariable(value = "id") Long id, @PathVariable(value = "amount") double amount) {
+        return ResponseEntity.ok(accService.deposit(id, amount));
+    }
 }
