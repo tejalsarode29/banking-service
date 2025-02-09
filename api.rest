@@ -8,3 +8,11 @@ Content-Type: application/json
     "accountHolderName": "TejalSarode",
     "balance": 10000.00
 }
+
+### Get Account By Id
+GET {{baseurl}}/api/account/getAccountById/2 HTTP/1.1
+Content-Type: application/json
+
+### Get All Accounts
+GET {{baseurl}}/api/account/getAllAccounts HTTP/1.1
+Content-Type: application/json

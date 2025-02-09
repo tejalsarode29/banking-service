@@ -1,7 +1,11 @@
 package com.bny.banking_application.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +22,18 @@ public class AccountController {
 
     public AccountController(AccountService accService) {
         this.accService = accService;
+    }
+
+    @GetMapping("/getAccountById/{id}")
+    public ResponseEntity<AccountDto> getAccount(@PathVariable(value="id") Long id) {
+        AccountDto accountDto = accService.getAccountById(id);
+        return ResponseEntity.ok(accountDto);
+    }
+
+    @GetMapping("/getAllAccounts")
+    public ResponseEntity<List<AccountDto>> getAllAccounts() {
+        List<AccountDto> accountDtos = accService.getAllAccounts();
+        return ResponseEntity.ok(accountDtos);
     }
 
     @PostMapping

@@ -1,5 +1,8 @@
 package com.bny.banking_application.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +26,22 @@ public class AccountServiceImpl implements AccountService {
         Account account = AccountMapper.mapToAccount(accountDto);
         account = accountRepository.save(account);
         return AccountMapper.mapToAccountDto(account);
+    }
+
+    @Override
+    public AccountDto getAccountById(Long id) {
+        Account account = accountRepository.findById(id).orElse(null);
+        return AccountMapper.mapToAccountDto(account);
+    }
+
+    @Override
+    public List<AccountDto> getAllAccounts() {
+        List<Account> accounts = accountRepository.findAll();
+        List<AccountDto> lstOfAccDto = new ArrayList<>();
+        for(Account account : accounts) {
+            lstOfAccDto.add(AccountMapper.mapToAccountDto(account));
+        }
+        return lstOfAccDto;
     }
     
 }
