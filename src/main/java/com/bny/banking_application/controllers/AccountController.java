@@ -2,6 +2,8 @@ package com.bny.banking_application.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +20,8 @@ public class AccountController {
         this.accService = accService;
     }
 
-    public ResponseEntity<AccountDto> createAccount(AccountDto accountDto) {
+    @PostMapping
+    public ResponseEntity<AccountDto> createAccount(@RequestBody AccountDto accountDto) {
         AccountDto accDto = accService.createAccount(accountDto);
         return ResponseEntity.ok(accDto);
     }

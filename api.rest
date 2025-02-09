@@ -1,0 +1,10 @@
+@baseurl=http://localhost:8080
+
+### Create Account 
+POST {{baseurl}}/api/account HTTP/1.1
+Content-Type: application/json
+
+{
+    "accountHolderName": "TejalSarode",
+    "balance": 10000.00
+}

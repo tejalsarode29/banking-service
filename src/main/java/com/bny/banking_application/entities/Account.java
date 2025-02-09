@@ -44,13 +44,12 @@ public class Account {
         this.accountHolderName = accountHolderName;
     }
 
-    public double getBalnce() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalnce(double balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
-
     
 }
