@@ -1,0 +1,6 @@
+1) Get Account By Id
+2) Get All Acconts 
+3) Delete Account 
+4) Create Account 
+5) Deposit Balance 
+6) Withdraw Balance 
