@@ -51,5 +51,10 @@ public class Account {
     public void setBalance(double balance) {
         this.balance = balance;
     }
+
+    public Account orElseThrow(Object object) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'orElseThrow'");
+    }
     
 }
